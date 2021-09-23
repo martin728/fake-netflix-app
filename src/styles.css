@@ -1,4 +1,6 @@
 body{
+    display: flex;
+    flex-direction: column;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
 }
@@ -13,6 +15,7 @@ body{
 }
 .movie img {
     width: 100%;
+    max-height: 350px;
 }
 .movie-container{
     display: flex;
@@ -30,13 +33,78 @@ body{
     background-color: black;
     outline: 7px solid black;
 }
-.logo{
+
+.header-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
+    height: 215px;
+    background-image: url(https://www.brightfocus.org/sites/default/files/styles/full_width/public/dark-movie-theatre.png?itok=6y3gm-yh);
+    background-position-y: 34%;
+    margin-bottom: 10px;
+
 }
-.logo img{
-    width: 100%;
-    height: 300px;
+
+header{
+    width: 82%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+    margin: auto;
+
+
+}
+.search{
+    width: 200px;
+    background-color: black;
+    color: rgb(144, 144, 144);
+    border:3px solid red;
+    border-radius: 50px;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 7px 20px;
+    margin: 20px;
+
+}
+.logo{
+    font-size: 45px;
+    color: red;
+    text-shadow: -2px 0px 3px rgb(197, 197, 197);
+}
+header h3 {
+    margin: 20px;
+}
+
+.movie-description{
+    margin: auto;
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+
+}
+
+.movies-info{
+    display: flex;
+    font-size: 25px;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: flex-end;
+
+}
+.movie-picture h1{
+    font-size: 45px;
+
+}
+.movie-picture img{
+width: 300px;
+}
+body{
+    background-image: url(https://dcist.com/wp-content/uploads/sites/3/2020/04/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
