@@ -1,12 +1,18 @@
+:root{
+    --black:rgb(0, 0, 0);
+    --bordo:rgb(99, 0, 0);
+    --gray:rgb(124, 124, 124);
+}
+
 body{
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    background-color: --black;
+    color: var(--gray);
 }
 
 .movie{
-    background-color: rgb(119, 0, 0);
+    background-color: --bordo;
     width: 250px;
     margin: 1rem;
     padding: 5px;
@@ -30,8 +36,8 @@ body{
     padding: 0 10px;
 }
 .movie-info span{
-    background-color: black;
-    outline: 7px solid black;
+    background-color: var(--black);
+    outline: 7px solid var(--black);
 }
 
 .header-bg {
@@ -59,9 +65,9 @@ header{
 }
 .search{
     width: 200px;
-    background-color: black;
+    background-color: var(--black);
     color: rgb(144, 144, 144);
-    border:3px solid red;
+    border:3px solid var(--bordo);
     border-radius: 50px;
     height: 30px;
     outline: none;
@@ -107,4 +113,52 @@ body{
     background-image: url(https://dcist.com/wp-content/uploads/sites/3/2020/04/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+.form{
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:var(--gray);
+    font-size: 30px;
+}
+.form h1{
+        margin-bottom: 0px;
+}
+.form-page{
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+    color:var(--gray);
+    width: 500px;   
+}
+.form-page input{
+    font-size: 18px;
+    height: 40px;
+    margin: 10px 0px;
+    outline: none;
+    color: var(--gray);
+    border-radius: 50px;
+    padding-left: 15px;
+    background-color: var(--bordo);
+}
+.form-page input::placeholder{
+    color:var(--gray);
+}
+
+.form-btn{
+    height: 45px;
+    font-size: 18px;
+    background-color: var(--bordo);
+    color:var(--gray);
+    font-weight: 700;
+    margin-top: 30px;
+    border-radius: 50px;
+    width: 200px;
+    outline: none;
+    cursor: pointer;
 }

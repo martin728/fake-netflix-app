@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Movie from './Movie'
+import LoginBtn from './buttons/LoginBtn.js'
+import LogoutBtn from './buttons/LogoutBtn.js'
 import { useHistory } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from "../firebase.js";
 
 const SHOW_API = 'https://api.tvmaze.com/shows';
 const SEARCH_API = 'https://api.tvmaze.com/search/shows?q='
@@ -10,6 +14,7 @@ const MainPage = () => {
     const history = useHistory();
     const [movies, setMovies] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
         fetch(SHOW_API)
@@ -48,6 +53,7 @@ const MainPage = () => {
                         onChange={handleOnChange}
                     />
                 </form>
+                {user ? <LogoutBtn /> : <LoginBtn />}
             </header>
             <div className="header-bg"></div>
             {movies.length > 0 && movies.map(movie => (
