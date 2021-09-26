@@ -1,28 +1,40 @@
 :root{
     --black:rgb(0, 0, 0);
-    --bordo:rgb(99, 0, 0);
-    --gray:rgb(124, 124, 124);
+    --bordo:rgb(168, 2, 2);
+    --gray:rgb(197, 196, 196);
 }
+
+
 
 body{
     display: flex;
     flex-direction: column;
-    background-color: --black;
     color: var(--gray);
+    background-image: url(https://dcist.com/wp-content/uploads/sites/3/2020/04/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: var(--black);
 }
 
 .movie{
-    background-color: --bordo;
+    background-color: var(--bordo);
     width: 250px;
     margin: 1rem;
     padding: 5px;
     border-radius: 3px;
     overflow: hidden;
 }
+.movie:hover{
+    transform:scale(1.1);
+}
 .movie img {
     width: 100%;
     max-height: 350px;
+
 }
+
+
 .movie-container{
     display: flex;
     align-items: center;
@@ -34,6 +46,8 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0 10px;
+    font-size: 20px;
+    
 }
 .movie-info span{
     background-color: var(--black);
@@ -78,9 +92,9 @@ header{
 
 }
 .logo{
-    font-size: 45px;
-    color: red;
-    text-shadow: -2px 0px 3px rgb(197, 197, 197);
+    font-size: 60px;
+    color: var(--bordo);
+    text-shadow: -2px 0px 3px var(--gray);;
 }
 header h3 {
     margin: 20px;
@@ -109,12 +123,9 @@ header h3 {
 .movie-picture img{
 width: 300px;
 }
-body{
-    background-image: url(https://dcist.com/wp-content/uploads/sites/3/2020/04/felix-mooneeram-evlkOfkQ5rE-unsplash-1500x1000.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: black;
-}
+.movie-picture img:hover{
+    transform:scale(1.1);}
+
 .form{
     max-width: 500px;
     margin: auto;
@@ -149,10 +160,11 @@ body{
 }
 .form-page input::placeholder{
     color:var(--gray);
+    font-style: italic;
 }
 
 .form-btn{
-    height: 45px;
+    height: 50px;
     font-size: 18px;
     background-color: var(--bordo);
     color:var(--gray);
@@ -163,6 +175,34 @@ body{
     outline: none;
     cursor: pointer;
 }
+
 .logo-text{
     cursor: pointer;
+}
+
+.header-right{
+    display: flex;
+    align-items: baseline;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sign-btn:hover{
+    color:var(--bordo);
+    cursor:pointer;
+}
+.account-btn{
+    margin-left: 20px;
+}
+
+.my-account{
+    width: 80%;
+    margin: auto;
+}
+.my-account h1{
+    text-align: center;
+    font-size: 40px;
 }

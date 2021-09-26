@@ -12,6 +12,9 @@ const SignUp = () => {
     const [user, loading, error] = useAuthState(auth);
     const history = useHistory();
 
+    function onSignin() {
+        history.push('/signin')
+    }
     const register = (e) => {
         e.preventDefault();
         if (!name) alert("Please enter name");
@@ -35,8 +38,12 @@ const SignUp = () => {
             <label>Confirm Password</label>
             <input type="password" placeholder="Password..." />
         </form>
-        <button className="form-btn" onClick={(e) => register(e)}> Sign Up</button>
-        <button className="form-btn" onClick={() => signInWithGoogle(email, password)}> Sign Up with Google</button>
+        <div className="btn-container">
+            <button className="form-btn" onClick={(e) => register(e)}> Sign Up</button>
+            <button className="form-btn" onClick={() => signInWithGoogle(email, password)}> Sign Up with Google</button>
+        </div>
+        <p>Already have an account? <span className="sign-btn" onClick={onSignin}>Sign in!</span></p>
+
     </div>
 };
 

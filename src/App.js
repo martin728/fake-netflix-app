@@ -1,5 +1,6 @@
 import MoviesGrid from './components/movies/MoviesGrid';
 import MovieDetails from './components/movies/MovieDetails';
+import MyAccount from './components/MyAccount';
 import MoviesSearchGrid from './components/movies/MoviesSearchGrid';
 import SignUp from './components/user/SignUp';
 import Header from './components/Header';
@@ -19,6 +20,9 @@ function App() {
         <Route exact path='/'>
           <MoviesGrid />
         </Route>
+        <Route exact path='/myaccount'>
+          <MyAccount />
+        </Route>
         <Route exact path='/movies/search/:query'>
           <MoviesSearchGrid />
         </Route>
@@ -29,7 +33,6 @@ function App() {
           <SignIn />
         </Route>
       </Switch>
-
     </Router>
   );
 }

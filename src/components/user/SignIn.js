@@ -10,6 +10,9 @@ const SignIn = () => {
     const [password, setPassword] = useState("");
     const [user, loading] = useAuthState(auth);
 
+    function onSignup() {
+        history.push('/signup')
+    }
     useEffect(() => {
         if (loading) {
             return;
@@ -26,8 +29,11 @@ const SignIn = () => {
             <label>Password</label>
             <input type="password" placeholder="Password..." value={password} onChange={(e) => setPassword(e.target.value)} />
         </form>
-        <button className="form-btn" onClick={(btn) => signInWithEmailAndPassword(btn, email, password)}>Sign In</button>
-        <button className="form-btn" onClick={() => signInWithGoogle(email, password)}>Sign In with Google</button>
+        <div className="btn-container">
+            <button className="form-btn" onClick={(btn) => signInWithEmailAndPassword(btn, email, password)}>Sign In</button>
+            <button className="form-btn" onClick={() => signInWithGoogle(email, password)}>Sign In with Google</button>
+        </div>
+        <p>Doesn`t have an account? <span className="sign-btn" onClick={onSignup}>Sign up!</span></p>
     </div>
 };
 

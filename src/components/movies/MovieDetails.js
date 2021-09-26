@@ -21,7 +21,7 @@ const MovieDetails = () => {
             </div>
             <div className="movies-info">
                 <p><b>Genres</b>: {(movie?.genres)?.join(', ')}</p>
-                <p><b>Premiere</b>: {movie?.ended}</p>
+                <p><b>Premiere</b>: {movie?.ended?.split('-').reverse().join('-')}</p>
                 <p><b>Language</b>: {movie?.language}</p>
                 <p><b>Runtime</b>: {movie?.averageRuntime}</p>
                 <p><b>Rating</b>: {movie?.rating?.average}</p>
