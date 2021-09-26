@@ -1,7 +1,9 @@
-import MainPage from './components/MainPage';
-import MovieInfo from './components/MovieInfo';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
+import MoviesGrid from './components/movies/MoviesGrid';
+import MovieDetails from './components/movies/MovieDetails';
+import MoviesSearchGrid from './components/movies/MoviesSearchGrid';
+import SignUp from './components/user/SignUp';
+import Header from './components/Header';
+import SignIn from './components/user/SignIn';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 
@@ -9,12 +11,16 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <Switch>
         <Route exact path='/movies/:id'>
-          <MovieInfo />
+          <MovieDetails />
         </Route>
         <Route exact path='/'>
-          <MainPage />
+          <MoviesGrid />
+        </Route>
+        <Route exact path='/movies/search/:query'>
+          <MoviesSearchGrid />
         </Route>
         <Route exact path='/signup'>
           <SignUp />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, registerWithEmailAndPassword, signInWithGoogle } from "../firebase.js";
+import { auth, registerWithEmailAndPassword, signInWithGoogle } from "../../firebase.js";
 import { Link, useHistory } from "react-router-dom";
 
 
@@ -11,15 +11,17 @@ const SignUp = () => {
     const [name, setName] = useState("");
     const [user, loading, error] = useAuthState(auth);
     const history = useHistory();
+
     const register = (e) => {
         e.preventDefault();
         if (!name) alert("Please enter name");
         registerWithEmailAndPassword(name, email, password);
     };
+
     useEffect(() => {
         if (loading) return;
         if (user) history.replace("/dashboard");
-    }, [user, loading]);
+    }, [user, loading, history]);
 
     return <div className="form">
         <h1>Sign Up</h1>

@@ -1,20 +1,17 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getMovieById } from '../../services/tvmaze-service'
 
-const INFO_API = 'https://api.tvmaze.com/shows/';
 
-const MovieInfo = () => {
+const MovieDetails = () => {
     let { id } = useParams();
+
     const [movie, setMovies] = useState([]);
+
     useEffect(() => {
-        fetch(INFO_API + id)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                setMovies(data);
-            })
-    }, [])
+        getMovieById(id).then(data => setMovies(data))
+    }, [id])
 
     return (
         <div className="movie-description">
@@ -33,4 +30,4 @@ const MovieInfo = () => {
     )
 };
 
-export default MovieInfo;
+export default MovieDetails;

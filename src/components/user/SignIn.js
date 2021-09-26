@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useHistory } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase.js";
+import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase.js";
 
 const SignIn = () => {
     const history = useHistory()
@@ -15,7 +15,7 @@ const SignIn = () => {
             return;
         }
         if (user) history.replace("/");
-    }, [user, loading]);
+    }, [user, loading, history]);
 
 
     return <div className="form">
