@@ -27,6 +27,12 @@ const getFavMoviesForUser = async (userId) => {
         .get()
 
 }
+const addDataToCollection = async (data) => {
+
+    var collection = firebase.firestore().collection('fav-movies');
+    return collection.add(data);
+
+}
 
 const signInWithGoogle = async () => {
     try {
@@ -100,5 +106,6 @@ export {
     registerWithEmailAndPassword,
     sendPasswordResetEmail,
     logout,
-    getFavMoviesForUser
+    getFavMoviesForUser,
+    addDataToCollection
 };

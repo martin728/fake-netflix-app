@@ -35,8 +35,8 @@ const Header = () => {
                         onChange={handleOnChange}
                     />
                 </form>
-                {user ? <LogoutBtn /> : <LoginBtn />}
                 {user ? <MyAccountBtn /> : ''}
+                {user ? <LogoutBtn /> : <LoginBtn />}
             </div>
         </header>
     </div>

@@ -219,7 +219,7 @@ width: 300px;
     cursor:pointer;
 }
 .account-btn{
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .my-account{
@@ -239,4 +239,7 @@ width: 300px;
 .my-account h3{
     text-align: center;
     font-size: 30px;
+}
+.clicked{
+    background-color: black;
 }
