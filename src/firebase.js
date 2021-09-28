@@ -18,6 +18,8 @@ const db = app.firestore();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
+
+
 const getFavMoviesForUser = async (userId) => {
 
     return firebase.firestore().collection('fav-movies')

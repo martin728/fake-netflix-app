@@ -6,7 +6,6 @@ import { getMovieById } from '../../services/tvmaze-service'
 
 const MovieDetails = () => {
     let { id } = useParams();
-
     const [movie, setMovies] = useState([]);
 
     useEffect(() => {

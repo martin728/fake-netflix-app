@@ -228,11 +228,15 @@ width: 300px;
 }
 .my-account h1{
     text-align: center;
-    font-size: 40px;
+    font-size: 45px;
 }
 .sort-btns{
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;margin-bottom: 20px;
+}
+.my-account h3{
+    text-align: center;
+    font-size: 30px;
 }
