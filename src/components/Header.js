@@ -10,7 +10,6 @@ const Header = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [user] = useAuthState(auth);
     const history = useHistory();
-    console.log(user)
     const handleOnSubmit = (e) => {
         e.preventDefault()
         history.push('/movies/search/' + searchTerm)
