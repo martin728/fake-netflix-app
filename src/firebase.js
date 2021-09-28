@@ -1,6 +1,7 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
+import { collection, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCMrsCVrnvI6TWSuabZaGpBCcDM49IMUN0",
@@ -16,6 +17,14 @@ const auth = app.auth();
 const db = app.firestore();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+const getFavMoviesForUser = async (userId) => {
+
+    return firebase.firestore().collection('fav-movies')
+        .where('userId', '==', userId)
+        .get()
+
+}
 
 const signInWithGoogle = async () => {
     try {
@@ -89,4 +98,5 @@ export {
     registerWithEmailAndPassword,
     sendPasswordResetEmail,
     logout,
+    getFavMoviesForUser
 };

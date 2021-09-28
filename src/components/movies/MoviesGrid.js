@@ -3,8 +3,8 @@ import MovieTile from './MovieTile'
 import { getDefaultMovies } from '../../services/tvmaze-service'
 
 const MoviesGrid = () => {
+
     const [movies, setMovies] = useState([]);
-    console.log(movies)
     function sortByAlph() {
 
         getDefaultMovies().then(movies => setMovies(movies.sort(function (a, b) {

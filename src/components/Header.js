@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import LoginBtn from './buttons/LoginBtn.js'
 import MyAccountBtn from './buttons/MyAccountBtn'

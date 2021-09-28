@@ -1,7 +1,6 @@
-import React from 'react'
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase.js";
 
 const SignIn = () => {
@@ -9,7 +8,7 @@ const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading] = useAuthState(auth);
-
+    console.log(user)
     function onSignup() {
         history.push('/signup')
     }
