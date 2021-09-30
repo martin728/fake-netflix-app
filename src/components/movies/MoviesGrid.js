@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import MovieTile from './MovieTile'
+import { auth } from "../../firebase.js";
 import { getDefaultMovies } from '../../services/tvmaze-service'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { getFavMoviesForUser } from '../../firebase.js';
 
 const MoviesGrid = () => {
 
     const [movies, setMovies] = useState([]);
-    function sortByAlph() {
+    const [user] = useAuthState(auth);
 
+    function sortByAlph() {
         getDefaultMovies().then(movies => setMovies(movies.sort(function (a, b) {
             if (a.name > b.name) {
                 return 1;
@@ -16,7 +20,6 @@ const MoviesGrid = () => {
             }
             return 0;
         })))
-
     }
     function sortByRating() {
 
@@ -32,7 +35,6 @@ const MoviesGrid = () => {
 
     }
     function sortByDate() {
-
         getDefaultMovies().then(movies => setMovies(movies.slice().sort(function (a, b) {
             if (a.ended < b.ended) {
                 return 1;
@@ -47,8 +49,23 @@ const MoviesGrid = () => {
 
 
     useEffect(() => {
-        getDefaultMovies().then(movies => setMovies(movies))
-    }, [])
+
+        if (user) {
+            getFavMoviesForUser(user.uid).then((document) => {
+                let selected = [];
+                document.docs.map(doc => selected.push(doc.data().movieId));
+                getDefaultMovies().then(movies => {
+                    movies.forEach(mv => {
+                        mv.favourite = selected.includes(mv.id)
+                    });
+                    setMovies(movies)
+                })
+            })
+        } else {
+            // getDefaultMovies().then(movies => setMovies(movies))
+        }
+
+    }, [user])
 
     return (
         <div className="movie-container">

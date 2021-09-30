@@ -1,7 +1,6 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth"
 import "firebase/compat/firestore"
-import { collection, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCMrsCVrnvI6TWSuabZaGpBCcDM49IMUN0",
@@ -15,23 +14,24 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const auth = app.auth();
 const db = app.firestore();
-
+const moviesFirebaseCollection = firebase.firestore().collection('fav-movies')
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-
-
 const getFavMoviesForUser = async (userId) => {
-
-    return firebase.firestore().collection('fav-movies')
-        .where('userId', '==', userId)
-        .get()
-
+    return moviesFirebaseCollection.where('userId', '==', userId).get()
 }
-const addDataToCollection = async (data) => {
 
-    var collection = firebase.firestore().collection('fav-movies');
-    return collection.add(data);
-
+const addDataToCollection = async (data, userId, movieId) => {
+    moviesFirebaseCollection
+        .where('userId', '==', userId)
+        .where('movieId', '==', movieId)
+        .get().then((doc) => {
+            if (doc.docs.map((doc) => doc.data()).length == 0) {
+                return moviesFirebaseCollection.add(data);
+            } else {
+                console.log('Movie already exists')
+            }
+        })
 }
 
 const signInWithGoogle = async () => {
@@ -94,7 +94,6 @@ const sendPasswordResetEmail = async (email) => {
 };
 
 const logout = () => {
-
     auth.signOut();
 };
 
