@@ -62,7 +62,7 @@ const MoviesGrid = () => {
                 })
             })
         } else {
-            // getDefaultMovies().then(movies => setMovies(movies))
+            getDefaultMovies().then(movies => setMovies(movies))
         }
 
     }, [user])
