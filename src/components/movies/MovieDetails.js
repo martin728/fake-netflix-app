@@ -5,9 +5,9 @@ import { getMovieById } from '../../services/tvmaze-service'
 
 
 const MovieDetails = () => {
+    let clicked = false;
     let { id } = useParams();
     const [movie, setMovies] = useState([]);
-
     useEffect(() => {
         getMovieById(id).then(data => setMovies(data))
     }, [id])
@@ -24,6 +24,12 @@ const MovieDetails = () => {
                 <p><b>Language</b>: {movie?.language}</p>
                 <p><b>Runtime</b>: {movie?.averageRuntime}</p>
                 <p><b>Rating</b>: {movie?.rating?.average}</p>
+                <div className="movie-summary">
+                    <p><b>Description:</b></p>
+                    <div>
+                        {(movie?.summary)?.replace('<p>', ' ').replace('</p>', ' ').replace('<b>', ' ').replace('</b>', ' ')}
+                    </div>
+                </div>
             </div>
         </div>
     )
