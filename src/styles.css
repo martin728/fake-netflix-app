@@ -244,3 +244,6 @@ width: 300px;
 .liked{
     color:var(--gray);
 }
+.disable-btn{
+    display: none;
+}
